@@ -46,6 +46,7 @@ function Gameboard() {
       {createCell(6)}
       {createCell(7)}
       {createCell(8)}
+      <p className="turn">{currPlayer}'s turn</p>
     </div>
   );
 }
