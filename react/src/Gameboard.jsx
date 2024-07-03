@@ -2,7 +2,17 @@ import { handleCkick, playerSwitch, checkWin } from "./gameLogic";
 import { useState } from "react";
 
 function Gameboard() {
-  let wincondition = ["", "", "", "", "", "", "", "", ""];
+  let [wincondition, setWinCondition] = useState([
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+  ]);
   let [currPlayer, setCurrPlayer] = useState("O");
   function createCell(id) {
     let [cellData, setCellData] = useState("");
@@ -12,7 +22,11 @@ function Gameboard() {
       setCurrPlayer(newPlayer);
 
       setCellData(newPlayer);
-      handleCkick(e, wincondition, newPlayer);
+      let arrCopy = handleCkick(e, wincondition, newPlayer);
+      // arrCopy.map((el) => console.log(el));
+      setWinCondition(arrCopy);
+      // wincondition.map((el) => console.log(el));
+      checkWin(arrCopy, newPlayer);
     };
     return (
       <div className="cell" id={id} onClick={(e) => mark(e)}>

@@ -7,10 +7,34 @@ export function playerSwitch(currPlayer) {
 } //alternate between X and O s
 export function handleCkick(e, wincondition, newPlayer) {
   let index = e.target.id;
-  wincondition[index] = newPlayer;
+  let arrCopy = [...wincondition];
 
-  console.log(wincondition[index]);
+  arrCopy[index] = newPlayer;
+
+  return arrCopy;
 } //Marks  X and O s on board and update wincondition[]
-export function checkWin() {
-  console.log("fun3");
+export function checkWin(wincondition, newPlayer) {
+  const conditionArray = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+  for (let i = 0; i <= 7; i++) {
+    let win = true;
+    for (let j = 0; j <= 2; j++) {
+      let index = conditionArray[i][j];
+      //console.log(wincondition[index]);
+      if (wincondition[index] != newPlayer) {
+        win = false;
+      }
+    }
+    if (win == true) {
+      console.log("Game Won");
+    }
+  }
 } //check if someone won or game is a tie
