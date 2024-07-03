@@ -1,7 +1,12 @@
+import { handleCkick, playerSwitch, checkWin } from "./gameLogic";
 function Gameboard() {
   function createCell(id) {
     this.index = id;
-    return <div className="cell">{this.index}</div>;
+    return (
+      <div className="cell" id={id} onClick={handleCkick}>
+        {id}
+      </div>
+    );
   }
   return (
     <div className="board">
