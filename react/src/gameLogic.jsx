@@ -1,8 +1,15 @@
-export function playerSwitch() {
-  console.log("fun1");
+export function playerSwitch(currPlayer) {
+  if (currPlayer == "O") {
+    return "X";
+  } else {
+    return "O";
+  }
 } //alternate between X and O s
-export function handleCkick() {
-  console.log("fun2");
+export function handleCkick(e, wincondition, newPlayer) {
+  let index = e.target.id;
+  wincondition[index] = newPlayer;
+
+  console.log(wincondition[index]);
 } //Marks  X and O s on board and update wincondition[]
 export function checkWin() {
   console.log("fun3");
