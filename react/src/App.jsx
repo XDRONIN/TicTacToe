@@ -5,10 +5,13 @@ function App() {
     <>
       <center>
         {" "}
-        <h2>Tic Tac Toe</h2>
+        <h1>Tic Tac Toe</h1>
       </center>
       <Gameboard />
-      <ResetButton />
+      <center>
+        {" "}
+        <ResetButton />
+      </center>
     </>
   );
 }

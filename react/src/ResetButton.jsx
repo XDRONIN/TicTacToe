@@ -4,7 +4,7 @@ function ResetButton() {
     window.location.reload();
   };
   return (
-    <button onClick={handleReset} className="reset">
+    <button onClick={handleReset} className="button">
       Reset
     </button>
   );

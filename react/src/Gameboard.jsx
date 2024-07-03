@@ -36,18 +36,20 @@ function Gameboard() {
     );
   }
   return (
-    <div className="board">
-      {createCell(0)}
-      {createCell(1)}
-      {createCell(2)}
-      {createCell(3)}
-      {createCell(4)}
-      {createCell(5)}
-      {createCell(6)}
-      {createCell(7)}
-      {createCell(8)}
+    <>
+      <div className="board">
+        {createCell(0)}
+        {createCell(1)}
+        {createCell(2)}
+        {createCell(3)}
+        {createCell(4)}
+        {createCell(5)}
+        {createCell(6)}
+        {createCell(7)}
+        {createCell(8)}
+      </div>
       <p className="turn">{currPlayer}'s turn</p>
-    </div>
+    </>
   );
 }
 
