@@ -12,7 +12,7 @@ export function handleCkick(e, wincondition, newPlayer) {
   arrCopy[index] = newPlayer;
 
   return arrCopy;
-} //Marks  X and O s on board and update wincondition[]
+} // update wincondition[] and return the updated array
 export function checkWin(wincondition, newPlayer) {
   const conditionArray = [
     [0, 1, 2],
