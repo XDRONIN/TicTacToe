@@ -1,33 +1,40 @@
-import { handleCkick, playerSwitch, checkWin } from "./gameLogic";
+import { handleCkick, playerSwitch, checkWin, isfull } from "./gameLogic";
 import { useState } from "react";
 
 function Gameboard() {
   //initial value of the wincondition array
+  let runTemp;
+  let [isRunning, stopRunning] = useState(true);
   let [wincondition, setWinCondition] = useState([
-    "0",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
   ]);
   let [currPlayer, setCurrPlayer] = useState("X"); // a variable that keeps track of current player
   function createCell(id) {
     let [cellData, setCellData] = useState("");
     const mark = (e) => {
-      let newPlayer = playerSwitch(currPlayer); //newPlayer is the value given to the currentplayer to change state it makes player switch possible
+      if (isRunning && wincondition[e.target.id] == "") {
+        let newPlayer = playerSwitch(currPlayer); //newPlayer is the value given to the currentplayer to change state it makes player switch possible
 
-      setCurrPlayer(newPlayer);
+        setCurrPlayer(newPlayer);
 
-      setCellData(currPlayer); //the ingame box changes
-      let arrCopy = handleCkick(e, wincondition, currPlayer);
+        setCellData(currPlayer); //the ingame box changes
+        let arrCopy = handleCkick(e, wincondition, currPlayer);
 
-      setWinCondition(arrCopy); //the win condition array is updated keeps track of Xs and Os on the board
+        setWinCondition(arrCopy); //the win condition array is updated keeps track of Xs and Os on the board
 
-      checkWin(arrCopy, currPlayer); //checks the board for winning patteern
+        checkWin(arrCopy, currPlayer); //checks the board for winning patteern
+        runTemp = isfull(arrCopy); //check if game is tie//store the state for is running
+        stopRunning(runTemp); //stops if game ends;
+        console.log(e.target.id);
+      }
     };
     return (
       <div className="cell" id={id} onClick={(e) => mark(e)}>

@@ -42,5 +42,17 @@ export function checkWin(wincondition, newPlayer) {
   }
 } //check if someone won or game is a tie
 function alertWinner(newPlayer) {
+  //to alert if someone one the game
   alert(`${newPlayer} Won The Game `);
+}
+export function isfull(wincondition) {
+  //to check if the game is a tie
+  for (let i = 0; i <= 8; i++) {
+    if (wincondition[i] == "") {
+      return true;
+    }
+  }
+  console.log("tie");
+  alert("This Game Is A TIE!!");
+  return false;
 }
