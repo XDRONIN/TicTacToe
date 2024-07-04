@@ -24,6 +24,7 @@ export function checkWin(wincondition, newPlayer) {
     [0, 4, 8],
     [2, 4, 6],
   ];
+
   for (let i = 0; i <= 7; i++) {
     let win = true;
     for (let j = 0; j <= 2; j++) {
@@ -34,12 +35,16 @@ export function checkWin(wincondition, newPlayer) {
       }
     }
     if (win == true) {
-      console.log("Game Won");
+      //console.log("Game Won");
       setTimeout(() => {
         alertWinner(newPlayer);
       }, 150);
+      return false;
     }
   }
+
+  //console.log("not won");
+  return true;
 } //check if someone won or game is a tie
 function alertWinner(newPlayer) {
   //to alert if someone one the game
@@ -52,7 +57,9 @@ export function isfull(wincondition) {
       return true;
     }
   }
-  console.log("tie");
-  alert("This Game Is A TIE!!");
+  //console.log("tie");
+  setTimeout(() => {
+    alert("This Game Is A TIE!!");
+  }, 150);
   return false;
 }

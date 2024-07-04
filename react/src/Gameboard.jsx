@@ -30,10 +30,16 @@ function Gameboard() {
 
         setWinCondition(arrCopy); //the win condition array is updated keeps track of Xs and Os on the board
 
-        checkWin(arrCopy, currPlayer); //checks the board for winning patteern
+        runTemp = checkWin(arrCopy, currPlayer); //checks the board for winning patteern
+        stopRunning(runTemp);
+        if (!runTemp) {
+          return;
+        }
         runTemp = isfull(arrCopy); //check if game is tie//store the state for is running
-        stopRunning(runTemp); //stops if game ends;
-        console.log(e.target.id);
+        stopRunning(runTemp);
+        if (!runTemp) {
+          return;
+        }
       }
     };
     return (
