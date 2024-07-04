@@ -35,6 +35,12 @@ export function checkWin(wincondition, newPlayer) {
     }
     if (win == true) {
       console.log("Game Won");
+      setTimeout(() => {
+        alertWinner(newPlayer);
+      }, 150);
     }
   }
 } //check if someone won or game is a tie
+function alertWinner(newPlayer) {
+  alert(`${newPlayer} Won The Game `);
+}
